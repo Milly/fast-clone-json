@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "es2021",
     "module": "commonjs",
     "esModuleInterop": true,
@@ -22,9 +23,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "index.ts",
-    "test/index.ts",
-    "bench/index.ts",
-    "bench/types.d.ts"
+    "src/**/*.ts",
+    "test/**/*.ts",
+    "bench/**/*.ts"
   ]
 }

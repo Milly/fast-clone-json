@@ -5,7 +5,8 @@ import lodashCloneDeep from 'lodash.clonedeep';
 import rfdc from 'rfdc';
 import cloneDeep from 'clone-deep';
 import { copy as fastestClone } from 'fastest-json-copy';
-import cloneJSON from '../index';
+import cloneJSON from 'fast-json-clone';
+import { cloneJson, cloneJsonObject } from '../src/clone';
 
 const rfdcDefault = rfdc();
 const rfdcProto = rfdc({ proto: true, circles: false });
@@ -29,6 +30,7 @@ function naive(x: any): any {
 }
 
 function bench(name: string, data: any): void {
+    console.log('');
     console.log(`Running ${name} benchmark suite...`);
 
     const suite = new Benchmark.Suite(name);
@@ -60,8 +62,14 @@ function bench(name: string, data: any): void {
         .add('fastest-json-copy', function () {
             fastestClone(data);
         })
-        .add('fast-json-clone (this package)', function () {
+        .add('fast-json-clone', function () {
             cloneJSON(data);
+        })
+        .add('fast-clone-json (cloneJson)', function () {
+            cloneJson(data);
+        })
+        .add('fast-clone-json (cloneJsonObject)', function () {
+            cloneJsonObject(data);
         })
         .on('cycle', function (event: Benchmark.Event) {
             console.log(String(event.target));
@@ -94,3 +102,4 @@ bench('LARGE', large);
 bench('MEDIUM', medium);
 bench('SMALL', small);
 bench('EMPTY', {});
+bench('PRIMITIVE', 'foo');
