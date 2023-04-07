@@ -2,22 +2,29 @@
   "name": "fast-clone-json",
   "version": "1.0.0",
   "description": "Clone JSON value fast",
-  "main": "src/clone.js",
+  "main": "clone.js",
   "files": [
-    "src/clone.js",
-    "src/clone.d.ts",
+    "clone.js",
+    "clone.d.ts",
     "README.md",
-    "LICENSE.txt"
+    "LICENSE"
   ],
   "scripts": {
+    "clean": "rimraf dist clone.js clone.d.ts",
+    "prebuild": "npm run clean",
     "build": "tsc -p .",
+    "postbuild": "cpx \"{package.json,testdata/*.json}\" dist",
     "watch": "tsc -p . -w",
-    "test": "tsc -p . && mocha test",
-    "bench": "tsc -p . && node bench/clone.js",
+    "pretest": "npm run build",
+    "test": "mocha dist/test",
+    "prebench": "npm run build",
+    "bench": "node bench/clone.js",
     "prettier": "prettier -w \"**/*.ts\"",
     "check:ts": "tsc -p . --noEmit",
     "check:prettier": "prettier --check \"**/*.ts\"",
-    "check": "npm run check:ts && npm run check:prettier"
+    "check": "npm run check:ts && npm run check:prettier",
+    "prepublish": "npm run test",
+    "prepack": "npm run build && cpx \"dist/src/clone.*\" ."
   },
   "repository": {
     "type": "git",
@@ -46,6 +53,7 @@
     "@ungap/structured-clone": "^1.0.1",
     "benchmark": "^2.1.4",
     "clone-deep": "^4.0.1",
+    "cpx": "^1.5.0",
     "fast-json-clone": "^1.0.2",
     "fastest-json-copy": "^1.0.1",
     "lodash.clonedeep": "^4.5.0",
@@ -53,6 +61,7 @@
     "mocha": "^10.2.0",
     "prettier": "^2.8.7",
     "rfdc": "^1.3.0",
+    "rimraf": "^4.4.1",
     "typescript": "^5.0.3"
   }
 }
