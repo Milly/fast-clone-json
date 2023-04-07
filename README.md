@@ -1,7 +1,7 @@
 # Fastest JSON deep clone in JavaScript
 
-[![npm][npm-badge]][npm] [![CI][ci-badge]][ci]
-[![CC0 1.0][license-badge]](./LICENSE)
+[![deno land][deno-badge]][deno] [![npm][npm-badge]][npm] [![CI][ci-badge]][ci]
+[![CC0 1.0][license-badge]][license]
 
 This project is based on
 [fast-json-clone](https://www.npmjs.com/package/fast-json-clone).
@@ -113,14 +113,18 @@ slower. (eg, differences in CPUs and Javascript engines.)
 
 ## License
 
-This package is distributed under [CC0 1.0](./LICENSE) (Public Domain). Feel
-free to copy and paste the implementation directly to your project without any
+This package is distributed under [CC0 1.0][license] (Public Domain). Feel free
+to copy and paste the implementation directly to your project without any
 copyright notice.
 
 [ci]: https://github.com/Milly/fast-clone-json/actions/workflows/ci.yml
 [ci-badge]: https://github.com/Milly/fast-clone-json/actions/workflows/ci.yml/badge.svg
+[deno]: https://deno.land/x/fast-clone-json
+[deno-badge]: https://img.shields.io/badge/deno.land-x%2Ffast--clone--json-lightgrey?logo=deno
 [npm]: https://www.npmjs.com/package/fast-clone-json
 [npm-badge]: https://badge.fury.io/js/fast-clone-json.svg
+[license]: https://github.com/Milly/fast-clone-json/blob/master/LICENSE
 [license-badge]: https://img.shields.io/github/license/Milly/fast-clone-json
 [json]: https://json.org/
 [rfdc]: https://github.com/davidmarkclements/rfdc
+[benchmark]: https://github.com/Milly/fast-clone-json/tree/master/bench#readme
