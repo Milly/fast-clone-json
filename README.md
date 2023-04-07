@@ -119,8 +119,8 @@ copyright notice.
 
 [ci]: https://github.com/Milly/fast-clone-json/actions/workflows/ci.yml
 [ci-badge]: https://github.com/Milly/fast-clone-json/actions/workflows/ci.yml/badge.svg
-[deno]: https://deno.land/x/fast-clone-json
-[deno-badge]: https://img.shields.io/badge/deno.land-x%2Ffast--clone--json-lightgrey?logo=deno
+[deno]: https://deno.land/x/fast_clone_json
+[deno-badge]: https://img.shields.io/badge/deno.land-x%2Ffast__clone__json-lightgrey?logo=deno
 [npm]: https://www.npmjs.com/package/fast-clone-json
 [npm-badge]: https://badge.fury.io/js/fast-clone-json.svg
 [license]: https://github.com/Milly/fast-clone-json/blob/master/LICENSE
