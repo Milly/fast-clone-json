@@ -8,8 +8,8 @@ JavaScript focusing on the speed. According to [the benchmark][benchmark], this
 package seems the fastest among several deep-clone implementations.
 
 ```typescript
-import * as assert from "https://deno.land/std/testing/asserts.ts";
-import { cloneJson } from "https://deno.land/x/fast_clone_json/clone.ts";
+import * as assert from "https://deno.land/std@0.182.0/testing/asserts.ts";
+import { cloneJson } from "https://deno.land/x/fast_clone_json@v1.1.0/clone.ts";
 
 const value = {
   str: "hello",
