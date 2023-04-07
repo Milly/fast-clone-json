@@ -5,7 +5,7 @@ export type JsonValue = JsonPrimitive | JsonObject;
 /**
  * Creates a deep clone of a JSON value.
  */
-export function cloneJson(x: JsonValue): JsonValue {
+export function cloneJson<T extends JsonValue>(x: T): T {
     return typeof x !== 'object' || x === null ? x : cloneJsonObject(x);
 }
 
@@ -13,20 +13,20 @@ export function cloneJson(x: JsonValue): JsonValue {
  * Creates a deep clone of a JSON object.
  * Only array or object can be specified.
  */
-export function cloneJsonObject(x: JsonObject): JsonObject {
+export function cloneJsonObject<T extends JsonObject>(x: T): T {
     if (Array.isArray(x)) {
         const ret: JsonValue[] = Array(x.length);
         let i = 0;
         for (const e of x) {
             ret[i++] = typeof e !== 'object' || e === null ? e : cloneJsonObject(e);
         }
-        return ret;
+        return ret as T;
     } else {
         const ret: { [key: string]: JsonValue } = {};
         for (const k in x) {
-            const v = x[k];
+            const v = x[k] as JsonValue;
             ret[k] = typeof v !== 'object' || v === null ? v : cloneJsonObject(v);
         }
-        return ret;
+        return ret as T;
     }
 }
